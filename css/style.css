@@ -1,7 +1,17 @@
-nav .btn{
-  background-color: #ee6e73;
+.btn{
+  background-color: grey;
+}
+button{
+  margin-left: -6.3px;
+  background-color: black;
+  border:none;
+  cursor: pointer;
 }
 
-ul .colorBtn{
-  background-color: #ee6e73;
+.panel{
+  background: black;
+  color: white;
+  border-radius: 16px;
+  padding: 2em;
+  margin-bottom: 20px;
 }
