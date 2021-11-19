@@ -21,8 +21,8 @@ let tailLength = 2;
 let appleX = 5;
 let appleY = 5;
 
-let easterEggX = 100;
-let easterEggY = 100;
+let easterEggX = 9;
+let easterEggY = 9;
 
 let inputsXVelocity = 0;
 let inputsYVelocity = 0;
@@ -31,8 +31,6 @@ let xVelocity = 0;
 let yVelocity = 0;
 
 let score = 0;
-
-const gulpSound = new Audio("gulp.mp3");
 
 //game loop
 function drawGame() {
@@ -112,27 +110,6 @@ function isGameOver() {
 
 //EasterEgg
 
-function findEasterEgg() {
-  let end = false;
-
-  if (headX === easterEggX && headY === easterEggY) {
-      end = true;
-    }
-
-  if (end) {
-    ctx.fillStyle = "black";
-    ctx.font = "50px Verdana";
-
-    if (end) {
-      ctx.fillStyle = "black";
-      ctx.font = "50px Verdana";
-      ctx.fillText("Vous avez découvert l'Easter Egg, Félicitation", canvas.width / 6.5, canvas.height / 2);
-    }
-    ctx.fillText("Vous avez découvert l'Easter Egg, Félicitation", canvas.width / 6.5, canvas.height / 2);
-  }
-  return end;
-}
-
 function drawScore() {
   ctx.fillStyle = "black";
   ctx.font = "10px Verdana";
@@ -146,7 +123,7 @@ function clearScreen() {
 
 function drawEasterEgg() {
   ctx.fillStyle='gold';
-  ctx.fillRect(easterEggX, easterEggY, tileSize, tileSize);
+  ctx.fillRect(easterEggX * tileCount, easterEggY * tileCount, tileSize, tileSize);
 }
 
 function drawSnake() {
@@ -181,7 +158,28 @@ function checkAppleCollision() {
     appleY = Math.floor(Math.random() * tileCount);
     tailLength++;
     score++;
-    gulpSound.play();
+  }
+}
+
+function findEasterEgg() {
+  let end = false;
+
+  if (easterEggX === headX && easterEggY === headY) {
+    end = true;
+    if (end) {
+      ctx.fillStyle = "black";
+      ctx.font = "50px Verdana";
+
+      if (end) {
+        ctx.fillStyle = "black";
+        ctx.font = "50px Verdana";
+        ctx.fillText("Bravo tu as trouvé l'easter egg", 1, canvas.height / 2);
+      }
+
+      ctx.fillText("Bravo tu as trouvé l'easter egg", 1, canvas.height / 2);
+    }
+
+    return end;
   }
 }
 
