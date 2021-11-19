@@ -1,5 +1,9 @@
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
+var game = document.getElementById("game");
+var couloir = document.getElementById("couloir");
+var piece = document.getElementById("piece");
+var ctxGame = game.getContext("2d");
+var ctxCouloir = couloir.getContext("2d");
+var ctxPiece = piece.getContext("2d");
 
 class SnakePart {
   constructor(x, y) {
@@ -11,7 +15,7 @@ class SnakePart {
 let speed = 7;
 
 let tileCount = 20;
-let tileSize = canvas.width / tileCount - 2;
+let tileSize = game.width / tileCount - 2;
 
 let headX = 10;
 let headY = 10;
@@ -21,8 +25,8 @@ let tailLength = 2;
 let appleX = 5;
 let appleY = 5;
 
-let easterEggX = 9;
-let easterEggY = 9;
+let easterEggX = 200;
+let easterEggY = 700;
 
 let inputsXVelocity = 0;
 let inputsYVelocity = 0;
@@ -74,6 +78,9 @@ function isGameOver() {
   }
 
   //walls
+
+  /*
+
   if (headX < 0) {
     gameOver = true;
   } else if (headX === tileCount) {
@@ -84,6 +91,8 @@ function isGameOver() {
     gameOver = true;
   }
 
+*/
+
   for (let i = 0; i < snakeParts.length; i++) {
     let part = snakeParts[i];
     if (part.x === headX && part.y === headY) {
@@ -93,16 +102,16 @@ function isGameOver() {
   }
 
   if (gameOver) {
-    ctx.fillStyle = "black";
-    ctx.font = "50px Verdana";
+    ctxGame.fillStyle = "black";
+    ctxGame.font = "50px Verdana";
 
     if (gameOver) {
-      ctx.fillStyle = "black";
-      ctx.font = "50px Verdana";
-      ctx.fillText("Game Over", canvas.width / 6.5, canvas.height / 2);
+      ctxGame.fillStyle = "black";
+      ctxGame.font = "50px Verdana";
+      ctxGame.fillText("Game Over", game.width / 6.5, game.height / 2);
     }
 
-    ctx.fillText("Game Over!", canvas.width / 6.5, canvas.height / 2);
+    ctxGame.fillText("Game Over!", game.width / 6.5, game.height / 2);
   }
 
   return gameOver;
@@ -111,26 +120,30 @@ function isGameOver() {
 //EasterEgg
 
 function drawScore() {
-  ctx.fillStyle = "black";
-  ctx.font = "10px Verdana";
-  ctx.fillText("Score " + score, canvas.width - 50, 10);
+  ctxGame.fillStyle = "black";
+  ctxGame.font = "10px Verdana";
+  ctxGame.fillText("Score " + score, game.width - 50, 10);
 }
 
 function clearScreen() {
-  ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctxGame.fillStyle = "white";
+  ctxGame.fillRect(0, 0, game.width, game.height);
+  ctxCouloir.fillStyle = "blue";
+  ctxCouloir.fillRect(180, 300, couloir.width, couloir.height);
+  ctxPiece.fillStyle = "white";
+  ctxPiece.fillRect(120, 620, piece.width, piece.height);
 }
 
 function drawEasterEgg() {
-  ctx.fillStyle='gold';
-  ctx.fillRect(easterEggX * tileCount, easterEggY * tileCount, tileSize, tileSize);
+  ctxPiece.fillStyle='gold';
+  ctxPiece.fillRect(200, 700 , 20, 20);
 }
 
 function drawSnake() {
-  ctx.fillStyle = "red";
+  ctxGame.fillStyle = "red";
   for (let i = 0; i < snakeParts.length; i++) {
     let part = snakeParts[i];
-    ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
+    ctxGame.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
   }
 
   snakeParts.push(new SnakePart(headX, headY)); //put an item at the end of the list next to the head
@@ -138,8 +151,8 @@ function drawSnake() {
     snakeParts.shift(); // remove the furthet item from the snake parts if have more than our tail size.
   }
 
-  ctx.fillStyle = "red";
-  ctx.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize);
+  ctxGame.fillStyle = "red";
+  ctxGame.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize);
 }
 
 function changeSnakePosition() {
@@ -148,8 +161,8 @@ function changeSnakePosition() {
 }
 
 function drawApple() {
-  ctx.fillStyle = "red";
-  ctx.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
+  ctxGame.fillStyle = "red";
+  ctxGame.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
 }
 
 function checkAppleCollision() {
@@ -167,16 +180,16 @@ function findEasterEgg() {
   if (easterEggX === headX && easterEggY === headY) {
     end = true;
     if (end) {
-      ctx.fillStyle = "black";
-      ctx.font = "50px Verdana";
+      ctxPiece.fillStyle = "black";
+      ctxPiece.font = "50px Verdana";
 
       if (end) {
-        ctx.fillStyle = "black";
-        ctx.font = "50px Verdana";
-        ctx.fillText("Bravo tu as trouvé l'easter egg", 1, canvas.height / 2);
+        ctxPiece.fillStyle = "black";
+        ctxPiece.font = "50px Verdana";
+        ctxPiece.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
       }
 
-      ctx.fillText("Bravo tu as trouvé l'easter egg", 1, canvas.height / 2);
+      ctxPiece.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
     }
 
     return end;
