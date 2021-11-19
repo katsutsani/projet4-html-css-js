@@ -22,11 +22,11 @@ let headY = 10;
 const snakeParts = [];
 let tailLength = 2;
 
+let easterEggX = 200;
+let easterEggY = 710;
+
 let appleX = 5;
 let appleY = 5;
-
-let easterEggX = 10;
-let easterEggY = 20;
 
 let inputsXVelocity = 0;
 let inputsYVelocity = 0;
@@ -59,8 +59,6 @@ function drawGame() {
   drawSnake();
   drawEasterEgg();
   drawScore();
-  drawCouloir();
-  drawPiece();
 
   if (score > 5) {
     speed = 9;
@@ -127,28 +125,18 @@ function drawScore() {
   ctxGame.fillText("Score " + score, game.width - 50, 10);
 }
 
-function drawCouloir(){
+function clearScreen() {
+  ctxGame.fillStyle = "white";
+  ctxGame.fillRect(0, 0, game.width, game.height);
+  ctxPiece.fileStyle = "white";
+  ctxPiece.fillRect(0,0,piece.width,piece.height);
   ctxCouloir.fileStyle = "white";
   ctxCouloir.fillRect(0, 0, couloir.width, couloir.height);
 }
 
-function drawPiece(){
-  ctxPiece.fileStyle = "white";
-  ctxPiece.fillRect(0,0,piece.width,piece.height);
-}
-
-function clearScreen() {
-  ctxGame.fillStyle = "white";
-  ctxGame.fillRect(0, 0, game.width, game.height);
-  ctxCouloir.fillStyle = "white";
-  ctxCouloir.fillRect(180, 300, couloir.width, couloir.height);
-  ctxPiece.fillStyle = "white";
-  ctxPiece.fillRect(120, 620, piece.width, piece.height);
-}
-
 function drawEasterEgg() {
-  ctxGame.fillStyle='gold';
-  ctxGame.fillRect(easterEggX * tileCount, easterEggY * tileCount, tileSize, tileSize);
+  ctxPiece.fillStyle='gold';
+  ctxPiece.fillRect(0, 0, tileCount, tileCount);
 }
 
 function drawSnake() {
@@ -192,16 +180,16 @@ function findEasterEgg() {
   if (easterEggX === headX && easterEggY === headY) {
     end = true;
     if (end) {
-      ctxPiece.fillStyle = "black";
-      ctxPiece.font = "50px Verdana";
+      ctxGame.fillStyle = "black";
+      ctxGame.font = "50px Verdana";
 
       if (end) {
-        ctxPiece.fillStyle = "black";
-        ctxPiece.font = "50px Verdana";
-        ctxPiece.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
+        ctxGame.fillStyle = "black";
+        ctxGame.font = "50px Verdana";
+        ctxGame.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
       }
 
-      ctxPiece.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
+      ctxGame.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
     }
 
     return end;
