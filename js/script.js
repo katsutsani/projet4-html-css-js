@@ -21,4 +21,17 @@ function copyToClipboard(text) {
    elem.select();
    document.execCommand('copy');
    document.body.removeChild(elem);
-}
+};
+
+$(function() {
+    $('#btns').removeClass('hide');
+    $(window).scroll(function() {
+        console.log('scrolling ', $(window).scrollTop(), $(document).height());
+        if($(window).scrollTop() >= 2 && $(window).scrollTop() <= ($(document).height() - 500)) {
+        	$('#btns').addClass('hide');
+        }
+        else if($(window).scrollTop() <= 2 && $(window).scrollTop() <= ($(document).height() - 500)) {
+        	$('#btns').removeClass('hide');
+        }
+    });
+});
