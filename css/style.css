@@ -22,7 +22,11 @@ p img {
   margin-right: 5px;
 }
 
-.panel{
+.nom {
+  font-size: 3.3em;
+}
+
+.panel {
   background: black;
   color: white;
   border-radius: 16px;
