@@ -8,6 +8,20 @@ button{
   cursor: pointer;
 }
 
+p span img {
+  margin-bottom: -10px;
+  margin-right: 6px;
+}
+
+p img {
+  margin-bottom: -5px;
+}
+
+.text {
+  margin-bottom: -8px;
+  margin-right: 5px;
+}
+
 .panel{
   background: black;
   color: white;
