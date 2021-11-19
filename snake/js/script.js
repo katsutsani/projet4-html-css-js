@@ -25,8 +25,8 @@ let tailLength = 2;
 let appleX = 5;
 let appleY = 5;
 
-let easterEggX = 200;
-let easterEggY = 700;
+let easterEggX = 6;
+let easterEggY = 6;
 
 let inputsXVelocity = 0;
 let inputsYVelocity = 0;
@@ -59,6 +59,8 @@ function drawGame() {
   drawSnake();
   drawEasterEgg();
   drawScore();
+  drawCouloir();
+  drawPiece();
 
   if (score > 5) {
     speed = 9;
@@ -125,18 +127,28 @@ function drawScore() {
   ctxGame.fillText("Score " + score, game.width - 50, 10);
 }
 
+function drawCouloir(){
+  ctxCouloir.fileStyle = "white";
+  ctxCouloir.fillRect(0, 0, couloir.width, couloir.height);
+}
+
+function drawPiece(){
+  ctxPiece.fileStyle = "white";
+  ctxPiece.fillRect(0,0,piece.width,piece.height);
+}
+
 function clearScreen() {
   ctxGame.fillStyle = "white";
   ctxGame.fillRect(0, 0, game.width, game.height);
-  ctxCouloir.fillStyle = "blue";
+  ctxCouloir.fillStyle = "white";
   ctxCouloir.fillRect(180, 300, couloir.width, couloir.height);
   ctxPiece.fillStyle = "white";
   ctxPiece.fillRect(120, 620, piece.width, piece.height);
 }
 
 function drawEasterEgg() {
-  ctxPiece.fillStyle='gold';
-  ctxPiece.fillRect(200, 700 , 20, 20);
+  ctxGame.fillStyle='gold';
+  ctxGame.fillRect(200, 700 , 20, 20);
 }
 
 function drawSnake() {
