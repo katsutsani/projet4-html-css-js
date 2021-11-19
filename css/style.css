@@ -52,8 +52,7 @@ p img {
 @media (max-width: 3000px) {
   .easterEgg button {
     position:absolute;
-    margin-top: -497.5px;
-    margin-left: -272px;
+    margin:-26.12% -14.32%;
     cursor: pointer;
     background: transparent;
     border: none;

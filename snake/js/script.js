@@ -59,8 +59,6 @@ function drawGame() {
   drawSnake();
   drawEasterEgg();
   drawScore();
-  drawCouloir();
-  drawPiece();
 
   if (score > 5) {
     speed = 9;
@@ -127,23 +125,13 @@ function drawScore() {
   ctxGame.fillText("Score " + score, game.width - 50, 10);
 }
 
-function drawCouloir(){
-  ctxCouloir.fileStyle = "white";
-  ctxCouloir.fillRect(0, 0, couloir.width, couloir.height);
-}
-
-function drawPiece(){
-  ctxPiece.fileStyle = "white";
-  ctxPiece.fillRect(0,0,piece.width,piece.height);
-}
-
 function clearScreen() {
   ctxGame.fillStyle = "white";
   ctxGame.fillRect(0, 0, game.width, game.height);
   ctxCouloir.fillStyle = "white";
-  ctxCouloir.fillRect(180, 300, couloir.width, couloir.height);
+  ctxCouloir.fillRect(0, 0, couloir.width, couloir.height);
   ctxPiece.fillStyle = "white";
-  ctxPiece.fillRect(120, 620, piece.width, piece.height);
+  ctxPiece.fillRect(0, 0, piece.width, piece.height);
 }
 
 function drawEasterEgg() {
