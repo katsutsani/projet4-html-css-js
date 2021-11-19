@@ -46,8 +46,8 @@ function drawGame() {
     return;
   }
 
-  let result = findEasterEgg();
-  if (result) {
+  let find = findEasterEgg();
+  if (find) {
     return;
   }
 
@@ -95,7 +95,7 @@ function isGameOver() {
   }
 
   if (gameOver) {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     ctx.font = "50px Verdana";
 
     if (gameOver) {
@@ -120,16 +120,17 @@ function findEasterEgg() {
     }
 
   if (end) {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     ctx.font = "50px Verdana";
 
     if (end) {
       ctx.fillStyle = "black";
       ctx.font = "50px Verdana";
-      ctx.fillText("Game Over", canvas.width / 6.5, canvas.height / 2);
+      ctx.fillText("Vous avez découvert l'Easter Egg, Félicitation", canvas.width / 6.5, canvas.height / 2);
     }
-    ctx.fillText("Vous avez découvert L'easter Egg, Félicitation", canvas.width / 6.5, canvas.height / 2);
+    ctx.fillText("Vous avez découvert l'Easter Egg, Félicitation", canvas.width / 6.5, canvas.height / 2);
   }
+  return end;
 }
 
 function drawScore() {
