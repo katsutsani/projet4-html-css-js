@@ -128,15 +128,15 @@ function drawScore() {
 function clearScreen() {
   ctxGame.fillStyle = "white";
   ctxGame.fillRect(0, 0, game.width, game.height);
-  ctxPiece.fileStyle = "white";
-  ctxPiece.fillRect(0,0,piece.width,piece.height);
-  ctxCouloir.fileStyle = "white";
+  ctxCouloir.fillStyle = "white";
   ctxCouloir.fillRect(0, 0, couloir.width, couloir.height);
+  ctxPiece.fillStyle = "white";
+  ctxPiece.fillRect(0, 0, piece.width, piece.height);
 }
 
 function drawEasterEgg() {
   ctxPiece.fillStyle='gold';
-  ctxPiece.fillRect(0, 0, tileCount, tileCount);
+  ctxPiece.fillRect(80, 80, tileCount, tileCount);
 }
 
 function drawSnake() {
