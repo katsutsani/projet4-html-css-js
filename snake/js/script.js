@@ -25,8 +25,8 @@ let tailLength = 2;
 let appleX = 5;
 let appleY = 5;
 
-let easterEggX = 6;
-let easterEggY = 6;
+let easterEggX = 10;
+let easterEggY = 20;
 
 let inputsXVelocity = 0;
 let inputsYVelocity = 0;
@@ -148,7 +148,7 @@ function clearScreen() {
 
 function drawEasterEgg() {
   ctxGame.fillStyle='gold';
-  ctxGame.fillRect(200, 700 , 20, 20);
+  ctxGame.fillRect(easterEggX * tileCount, easterEggY * tileCount, tileSize, tileSize);
 }
 
 function drawSnake() {
