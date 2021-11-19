@@ -40,3 +40,40 @@ p img {
 .age {
   font-size: 30px;
 }
+
+.hide {
+   display: none;
+}
+
+@media (max-width: 3000px) {
+  .easterEgg button {
+    position:absolute;
+    margin-top: -497.5px;
+    margin-left: -272px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    }
+  }
+
+@media (max-width: 1250px) {
+   .easterEgg button {
+     position:absolute;
+     margin-top: -514.5px;
+     margin-left: -272px;
+     cursor: pointer;
+     background: transparent;
+     border: none;
+   }
+  }
+
+@media (max-width: 600px) {
+    .easterEgg button {
+      position:absolute;
+      margin-top: -510px;
+      margin-left: -272px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+  }
