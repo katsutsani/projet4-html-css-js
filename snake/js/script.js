@@ -140,7 +140,7 @@ function drawEasterEgg() {
 }
 
 function drawSnake() {
-  ctxGame.fillStyle = "red";
+  ctxGame.fillStyle = "green";
   for (let i = 0; i < snakeParts.length; i++) {
     let part = snakeParts[i];
     ctxGame.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
@@ -151,7 +151,7 @@ function drawSnake() {
     snakeParts.shift(); // remove the furthet item from the snake parts if have more than our tail size.
   }
 
-  ctxGame.fillStyle = "red";
+  ctxGame.fillStyle = "green";
   ctxGame.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize);
 }
 
@@ -186,10 +186,10 @@ function findEasterEgg() {
       if (end) {
         ctxGame.fillStyle = "black";
         ctxGame.font = "50px Verdana";
-        ctxGame.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
+        ctxGame.fillText("Bravo, tu as trouvé l'easter egg", 1, piece.height / 2);
       }
 
-      ctxGame.fillText("Bravo tu as trouvé l'easter egg", 1, piece.height / 2);
+      ctxGame.fillText("Bravo, tu as trouvé l'easter egg", 1, piece.height / 2);
     }
 
     return end;
