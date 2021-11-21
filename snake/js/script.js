@@ -18,9 +18,6 @@ let headY = 10;
 const snakeParts = [];
 let tailLength = 2;
 
-let easterEggX = 200;
-let easterEggY = 620;
-
 let appleX = 5;
 let appleY = 5;
 
@@ -58,7 +55,6 @@ function drawGame() {
   checkAppleCollision();
   drawApple();
   drawSnake();
-  drawEasterEgg();
   drawScore();
 
   if (score > 5) {
@@ -119,11 +115,8 @@ function clearSecret() {
   ctx.fillStyle = "white";
   ctx.fillRect(200, 420, 20, 140);
   ctx.fillRect(140, 560, 140, 140);
-}
-
-function drawEasterEgg() {
   ctx.fillStyle='gold';
-  ctx.fillRect(easterEggX, easterEggY, tileCount, tileCount);
+  ctx.fillRect( 200, 620, tileCount, tileCount);
 }
 
 function drawSnake() {
@@ -164,7 +157,7 @@ function checkAppleCollision() {
 function findEasterEgg() {
   let end = false;
 
-  if (easterEggX === headX && easterEggY === headY) {
+  if ( 10 === headX && 32 === headY) {
     end = true;
     if (end) {
       ctx.fillStyle = "black";
@@ -186,12 +179,11 @@ function findEasterEgg() {
 function invisibility() {
   let open = false;
 
-  if (headX === 210 && headY === 410) { // A FAIRE !!!!!!!!!!!!!!!!!!!!!!!
+  if (headX === 10 && headY === 20) {
     open = true;
     return open;
   }
 }
-
 
 document.body.addEventListener("keydown", keyDown);
 
