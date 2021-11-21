@@ -115,7 +115,7 @@ function clearSecret() {
   ctx.fillStyle = "white";
   ctx.fillRect(200, 420, 20, 140);
   ctx.fillRect(140, 560, 140, 140);
-  ctx.fillStyle='gold';
+  ctx.fillStyle="gold";
   ctx.fillRect( 200, 620, tileCount, tileCount);
 }
 
@@ -157,19 +157,19 @@ function checkAppleCollision() {
 function findEasterEgg() {
   let end = false;
 
-  if ( 10 === headX && 32 === headY) {
+  if ( 10 === headX && 31 === headY) {
     end = true;
     if (end) {
       ctx.fillStyle = "black";
-      ctx.font = "50px Verdana";
+      ctx.font = "25px Verdana";
 
       if (end) {
         ctx.fillStyle = "black";
-        ctx.font = "50px Verdana";
-        ctx.fillText("Bravo, tu as trouvé l'easter egg", 1, 1);
+        ctx.font = "25px Verdana";
+        ctx.fillText("Bravo, tu as trouvé l'easter egg", 10, 50);
       }
 
-      ctx.fillText("Bravo, tu as trouvé l'easter egg", 1, 1);
+      ctx.fillText("Bravo, tu as trouvé l'easter egg", 10, 50);
     }
 
     return end;
